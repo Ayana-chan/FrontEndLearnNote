@@ -14,18 +14,27 @@
             console.log("this is generator");
             console.log(1);
             //yield把函数分为多个部分，每个next跳到下一个
-            yield 'i1';
+            let yy1= yield 'y1';
+            console.log('yield1: '+yy1);
             console.log(2);
-            yield 'i2';
+            yield 'y2';
             console.log(3);
-            yield 'i3';
+            yield 'y3';
+            console.log(4);
         }
 
+        // next可以传参进去，会成为yield的返回值（否则默认返回yield的参数值）
         let it=gen();
         it.next();
+        it.next('abc');
         it.next();
         it.next();
-        
+        it.next();//没用
+
+        // 能用for-of迭代，打印的是yield的参数值
+        for(let v of gen()){
+            console.log(v);
+        }
 
     </script>
 </body>
