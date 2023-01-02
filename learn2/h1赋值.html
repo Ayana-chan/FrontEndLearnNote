@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="strlist">
+        <p class="str">str1</p>
+        <p class="str">str2</p>
+        <p class="str">str3</p>
+    </nav>
+
+    <script>
+        let items=document.getElementsByClassName('str');
+
+        // for(var i=0;i<items.length;i++){
+        //     items[i].onclick=function(){
+        //         this.style.background='pink';
+        //     }
+        // }
+
+        //使用let后，onclick触发时，i向上方寻找赋值。
+        //如果用的是var，会导致每次调i都是从全局里面用，一直是items.length
+        for(let i=0;i<items.length;i++){
+            items[i].onclick=function(){
+                items[i].style.background='pink';
+            }
+        }
+
+        // 解构赋值
+        //数组
+        const f4=['ab','cd','e','f'];
+        let[s1,s2,s3,s4]=f4;
+        console.log(s2);
+        //对象(要求名字对上)
+        let peo={
+            name: 'name',
+            age: 12,
+            mov: function(){
+                console.log('mov');
+            }
+        };
+        let{name,mov}=peo;
+        console.log(name);
+        console.log(mov);
+        mov();
+
+        //反引号字符串
+        //能直接包含换行符
+        s1=`this
+        is
+            a
+        str`;
+        console.log(s1);
+        //用jq语法拼接字符串
+        console.log(`aa${s1}bb`);
+    </script>
+</body>
+</html>

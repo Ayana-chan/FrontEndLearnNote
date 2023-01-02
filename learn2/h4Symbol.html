@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Symbol对象，是基本数据类型
+      // 相当于获得了不可干涉的固定一块地址
+      // 同内容的String会被识别成同一个对象，但Symbol可以避免
+      //
+      //“cc"仅仅是注释（不是构造函数），可以没有，不干涉其是否相等
+      //下面s1和s2各获得了一块地址
+      s1 = Symbol("cc");
+      s2 = Symbol("cc");
+      console.log(s1 === s2);
+      //带上for，”cc“能使两个symbol相等
+      //其实就是在维护一个map，参数为key，同key则使用同一块地址
+      s3 = Symbol.for("cc");
+      s4 = Symbol.for("cc");
+      console.log(s3 === s4);
+
+      //此节留坑
+    </script>
+  </body>
+</html>

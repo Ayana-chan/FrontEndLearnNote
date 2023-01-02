@@ -1,0 +1,21 @@
+
+.box1{
+    width: 200px;
+    height: 200px;
+    background-color: #bfa;
+}
+/* 相对于父元素的百分比 */
+.box2 {
+    width: 60%;
+    height: 60%;
+    background-color: blue;
+}
+/* 1 em = 1 font_size 
+    em只看本身字体，而rem看根字体
+*/
+.box3{
+    font-size: 30px;
+    width: 10em;
+    height: 1em;
+    background-color: red;
+}

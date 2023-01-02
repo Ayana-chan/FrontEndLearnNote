@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 有Symbol.iterator的对象就可以迭代of
+        const list=['s1','s2','s3'];
+        //in返回键
+        for(let s in list){
+            console.log(s);
+        }
+        //of返回值
+        for(let s of list){
+            console.log(s);
+        }
+        //直接iterator
+        let it=list[Symbol.iterator]();
+        console.log(it.next());//指向第一个成员然后返回
+        console.log(it.next());
+        console.log(it.next());
+        console.log(it.next());//扫完了，done=true
+        console.log(it.next());
+
+        // 自定义迭代器
+        const peo={
+            name: 'name',
+            hobby: [
+                'html',
+                'css',
+                'js'
+            ],
+            [Symbol.iterator](){
+                let index=0;
+                return{
+                    // 由于next是外部接着用迭代器调用的，会导致普通this不指向peo，因此要用箭头函数锁死peo
+                    next: function(){
+                        if(index<this.hobby.length){
+                            const result={value: this.hobby[index],done: false};
+                            index++;
+                            return result;
+                        }else{
+                            return result={value: undefined,done:true};
+                        }
+                    }
+                }
+            }
+        }
+        for(let h of peo){
+            console.log(h);
+        }
+
+    </script>
+</body>
+</html>

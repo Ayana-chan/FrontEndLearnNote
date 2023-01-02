@@ -1,0 +1,66 @@
+/* 通配选择器，全部选中 */
+*{
+    font-size: 25px;
+}
+
+/* 元素选择器 */
+p {
+    color: tomato;
+    font-size: 20px;
+}
+
+/* id选择器，”#“开头，原则上只能选一个 */
+#p3{
+    color: green;
+}
+
+/* 类选择器，class可以重复因此可指定多个 */
+.p4{
+    color: blue;
+}
+
+/* 选择器直接连起来写表示交集 */
+p.largesize {
+    font-size: 40px;
+}
+
+/* 选择器分组（并集） */
+p,largesize {
+    font-size: 20px;
+}
+
+/* 子元素选择器 */
+div.d1 > p{
+    font-size: 10px;
+}
+
+/* 后代元素选择器 */
+div.d1>p {
+    font-size: 10px;
+}
+
+/* 兄弟元素选择器，选择div后面紧挨着的兄弟p，若标签不对或隔了两个都不行
+    换成“~”，则选择后面所有对应的兄弟
+*/
+/* div+p {
+    font-size: 10px;
+} */
+
+
+/* 属性中必须存在title */
+p[title]{
+    font-size: 10px;
+}
+
+/* 属性中title为xxx */
+p[title=abc] {
+    font-size: 10px;
+}
+
+/* 属性中title以xxx开头
+    换成“$=”就是以xx结尾
+    换成“*=”就是含有某值
+*/
+p[title^=abc] {
+    font-size: 10px;
+}

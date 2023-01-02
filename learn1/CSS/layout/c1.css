@@ -1,0 +1,70 @@
+.box1{
+    /* 
+        可以指定box-sizing: content-box 或 border-box
+        前者是默认，规定内容区的大小
+        后者规定带内边距和边框的大小
+    */
+    width: 400px;
+    height: 300px;
+    background-color: #bda;
+
+    /* 内边距 */
+    padding: 10px 20px 30px 40px;
+
+    /* 外边距（不可见区域）
+        top和left改变自己的位置
+        bottom和right会挤别人
+        可以是负的
+    */
+    margin: 50px;
+    /* 
+        兄弟元素间垂直外边距会折叠，取大
+        父子元素间相邻（重合边界）的外边距会传递，如子上传父上
+    */
+    
+    /* 边框是额外嵌在内容区外面的，总的box尺寸是内容区大小加两倍边框宽度 */
+    /* border-width: 10px 20px; */
+    /* border-bottom-width: 50px; */
+    /* border-color: red;
+    border-style: solid; */
+
+    /* 简写，没有顺序要求 */
+    border: 10px red solid;
+    border-right: none;
+    /* 可以用outline创建轮廓，不会邮箱布局 */
+
+    /* 
+        可以把各种尺寸设为auto，会自动让其填满整个父元素的内容区。
+        无auto时（过度约束），margin-right可以看成是auto
+        甚至可以被赋负数
+    */
+    /* 水平居中，原理是让左右外边距平均分配 */
+    margin: 0 auto;
+    /* 垂直方向，若父元素没指定高度，就会被其内容任意撑开
+        指定后则父元素高度固定，而子元素可以无视父元素边界溢出去 
+        可以通过指定overflow的参数以规定其溢出部分显示与否，或塞滚动条
+    */
+}
+
+/* 辅助，填满整个内容区 */
+.inner{
+    width: 100%;
+    height: 100%;
+    /* 适合做鼠标移入后变色变暗的颜色 */
+    background-color: #d9d9d9;
+}
+
+/* 行内元素
+    无法设置内容区宽高
+    垂直方向的其他属性的设置不会影响其他盒子的布局
+ */
+ /* 
+    display: inline 或 block
+    转成行内或块元素显示
+    inline-block: 缝合
+    table, none
+ */
+ /* 
+    visibility: visible 或 hidden
+    hidden后不显示但占位置 
+ */

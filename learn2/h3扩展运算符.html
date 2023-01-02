@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    
+    <script>
+        // 把数组转化成参数列表
+        const list1=['s1','s2','s3'];
+        let pt=function(){
+            console.log(arguments);
+        }
+        pt(list1);//打印了一个list
+        pt(...list1);//打印了三个string
+
+        //用于合并数组或克隆数组（引用类型浅拷贝）
+        const list2=['s4','s5'];
+        const list3=[...list1,...list2];
+        console.log(list3);
+
+        //用于把伪数组变成真正的数组
+        const divs=document.querySelectorAll('div');
+        console.log(divs);
+        const divList=[...divs];
+        console.log(divList);
+    </script>
+</body>
+</html>

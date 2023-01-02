@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 生成器，一个特殊的函数，不能直接执行
+        function * gen(){
+            console.log("this is generator");
+            console.log(1);
+            //yield把函数分为多个部分，每个next跳到下一个
+            yield 'i1';
+            console.log(2);
+            yield 'i2';
+            console.log(3);
+            yield 'i3';
+        }
+
+        let it=gen();
+        it.next();
+        it.next();
+        it.next();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+.topnav{
+    width: 1210px;
+    height: 48px;
+    background-color: #bfa;
+
+    margin: 100px auto;
+    list-style: none;
+}
+
+.topnav li{
+    float: left;
+
+    line-height: 48px;
+}
+
+/* 让a去拓展内边距以实现居中，这样整个块被点到就能触发超链接 */
+.topnav li a{
+    /* 如果没设置display为block的话，即使设置了行高，
+    内容区也只有字的大小，无法整个改变背景色 */
+    display: block;
+
+    text-decoration: none;
+    color: #777;
+    font-size: 18px;
+
+    padding: 0 50px;
+}
+
+/* 如果最后剩下了几个像素对不上，就用这个把最后的像素都分配给最后一项 */
+/* .topnav li:last-child a{
+    padding: 0 51px 0 52px;
+} */
+
+.topnav a:hover{
+    background-color: #3F3F3F;
+    color: #E8E7E3;
+}

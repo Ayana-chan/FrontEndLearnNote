@@ -1,0 +1,27 @@
+/* 伪类，查找第一个子li（第一个不是li则不行）。冒号左右两边都不能有空格 */
+ul> li:first-child {
+    color: red;
+}
+
+/* 第二个 */
+ul>li:nth-child(2) {
+    color: red;
+}
+
+/* 三的倍数 
+    odd：奇数
+    even：偶数
+*/
+ul>li:nth-child(3n) {
+    color: red;
+}
+
+/* 只看li的第一个，即使所有孩子的第一个不是li也行 */
+ul>li:first-of-type {
+    color: red;
+}
+
+/* 除了第三个 */
+ul>li:not(:nth-child(3)){
+    font-size: 30px;
+}

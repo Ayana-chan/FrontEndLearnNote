@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        //简化对象赋值
+        //可以使用其他对象进行赋值
+        //赋值函数的时候也不用写function和冒号
+        let name='name';
+        let mov=function(){
+            console.log('mov');
+        }
+        const peo ={
+            name,
+            mov,
+            run(){
+                console.log('run');
+            }
+        }
+
+        // 箭头声明函数
+        //写在这种函数里面的this是静态的，
+        //  一直指向其声明时候所在作用域下的this
+        //  或者说，一直指向定义该箭头函数的对象
+        //  而非如普通一样取决于运行时作用域
+        //  因此用了call也不会改变this
+        //
+        //不能作为构造函数
+        //不能用argument变量
+    
+        //带缺省值的箭头函数（缺省值不需要靠后）
+        let add=(a,b=2)=>{
+            return a+b;
+        }
+        console.log(add(2));
+        //单参省小括号
+        let dou=n=>{
+            return n*2;
+        }
+        console.log(dou(4));
+        //单语句省大括号与return，直接返回值
+        let tri=n=>n*3
+        console.log(tri(4));
+
+        //使用箭头后，就不需要额外存储this了
+        let box=document.getElementById('box');
+        box.addEventListener("click",function(){
+            //保存this
+            // let _this=this;
+            setTimeout(()=>{
+                // console.log(this);
+                // _this.style.background='pink';
+                this.style.background='pink';
+            },1500)
+        })
+
+        //不适合用于事件回调和对象的方法(即和this相关的)
+        //（在对象的方法里this就不会指向对象而是指向作用域了）
+        //（因为箭头函数本身没有this，因此this找到了全局的this来用
+        const obj = {
+            a:'a',
+            b:'b',
+            getA: () => {
+                return this.a
+            },
+            getB: function(){
+                return this.b
+            }
+        }
+        console.log( obj.getA() ) //undefined
+        console.log( obj.getB() )
+
+
+        //rest参数，只能放在最后
+        restFun=function(a,...args){
+            console.log('restArgs: '+ args);
+        }
+        restFun(1,2,3)
+    </script>
+</body>
+</html>
