@@ -9,7 +9,7 @@ export default {
       msg: "Hello, vue & vite!",
 
       dynid:"vid",
-      dyat:"id",
+      dynamicAttribute:"id",
 
       seen: false,
     };
@@ -35,7 +35,7 @@ export default {
     <p :id="dynid">My id is dynamic</p>
 
     <!-- 属性名也能动态化 -->
-    <p :[dyat]="dynid">My attribute is dynamic</p>
+    <p :[dynamic-attribute]="dynid">My attribute is dynamic</p>
 
     <!-- seen真假决定元素是否被移除 -->
     <p v-if="seen">My Existence is Connected with seen</p>
