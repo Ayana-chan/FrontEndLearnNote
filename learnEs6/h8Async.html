@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 会返回Promise
+        // 和Promise返回一样的逻辑
+        async function asyFun(){
+            return("Succeed Msg")
+
+            // throw new Error('errMsg')
+        }
+
+        const res=asyFun();
+        console.log(res);
+
+        const p=new Promise(function(resolve,reject){
+            // resolve("succeed")
+            reject("failed")
+        })
+
+        async function asyFun1(){
+            try{
+                // 执行异步方法并保存返回的信息
+                let result=await p;
+                console.log(result);
+            }catch(e){
+                console.log(e);
+            }
+        }
+
+        asyFun1();
+
+    </script>
+</body>
+</html>
