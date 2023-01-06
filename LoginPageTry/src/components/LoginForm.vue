@@ -3,6 +3,8 @@ import { reactive, ref } from 'vue';
 import axios from 'axios';
 import type { FormInstance, FormRules } from 'element-plus';
 
+const formWidth=400;
+
 // 对表单的引用，可以作为提交时的验证参数
 const loginFormRef = ref<FormInstance>();
 
@@ -83,6 +85,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
   <el-form
     class="login-form"
     size="default"
+    :style="'width:'+formWidth+'px'"
     ref="loginFormRef"
     :model="loginForm"
     :rules="loginRules"
@@ -170,10 +173,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
 </template>
 
 <style scoped>
-.login-form {
-  width: 400px;
-}
-
 /* form-fade：表单某一项的消失动画 */
 .form-fade-enter-active {
   transition: opacity 0.4s ease;
