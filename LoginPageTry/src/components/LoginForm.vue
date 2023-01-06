@@ -3,7 +3,7 @@ import { reactive, ref } from 'vue';
 import axios from 'axios';
 import type { FormInstance, FormRules } from 'element-plus';
 
-const formWidth=400;
+const formWidth = 400;
 
 // 对表单的引用，可以作为提交时的验证参数
 const loginFormRef = ref<FormInstance>();
@@ -19,9 +19,10 @@ const loginForm = reactive({
   // 下面是register特有的
   name: '',
   id: '',
-  birthday:[],
+  birthday: [],
 });
 
+// 表单校验规则
 const loginRules = reactive<FormRules>({
   email: [
     { required: true, message: 'Please Input E-Mail', trigger: 'change' },
@@ -35,8 +36,12 @@ const loginRules = reactive<FormRules>({
     { min: 6, max: 6, message: 'Format Error', trigger: 'blur' },
   ],
   name: [{ required: true, message: 'Please Input Name', trigger: 'change' }],
-  id: [{ required: true, message: 'Please Input ID Number', trigger: 'change' }],
-  birthday: [{ required: true, message: 'Please Pick Your Birthday', trigger: 'change' }],
+  id: [
+    { required: true, message: 'Please Input ID Number', trigger: 'change' },
+  ],
+  birthday: [
+    { required: true, message: 'Please Pick Your Birthday', trigger: 'change' },
+  ],
 });
 
 // 能否发送验证码。防止多次连续发送
@@ -59,7 +64,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (valid) {
       // 上传表单
       alert('submit succeed!');
-      console.log(loginForm)
+      console.log(loginForm);
     } else {
       // 校验不通过，发出警告
       alert('error submit!');
@@ -81,11 +86,12 @@ const resetForm = (formEl: FormInstance | undefined) => {
     <el-radio label="register">Register</el-radio>
   </el-radio-group>
 
+
   <!-- 表单 -->
   <el-form
     class="login-form"
     size="default"
-    :style="'width:'+formWidth+'px'"
+    :style="'width:' + formWidth + 'px'"
     ref="loginFormRef"
     :model="loginForm"
     :rules="loginRules"
@@ -165,14 +171,18 @@ const resetForm = (formEl: FormInstance | undefined) => {
     </Transition>
 
     <el-form-item>
-      <el-button type="primary" plain @click="submitForm(loginFormRef)"
-        >{{ requestType==='login' ? 'Login' : 'Register' }}</el-button
-      >
+      <el-button type="primary" plain @click="submitForm(loginFormRef)">{{
+        requestType === 'login' ? 'Login' : 'Register'
+      }}</el-button>
     </el-form-item>
   </el-form>
 </template>
 
 <style scoped>
+.login-form{
+  border-top: 1px solid var(--el-border-color);
+}
+
 /* form-fade：表单某一项的消失动画 */
 .form-fade-enter-active {
   transition: opacity 0.4s ease;
