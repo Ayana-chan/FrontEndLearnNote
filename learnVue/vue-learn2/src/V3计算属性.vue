@@ -19,6 +19,9 @@ const isBookExist=computed(()=>{
     return author.books.length>0? 'Yes' : 'No'
 })
 
+// 也可以在属性中使用花括号表示计算属性
+// <span :class="spanClasses">{{ todo.title }}</span>
+
 </script>
 
 <template>

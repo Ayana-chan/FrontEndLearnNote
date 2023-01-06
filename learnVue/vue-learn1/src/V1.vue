@@ -13,14 +13,14 @@ const dynamicAttribute = "id";
 const seen = true;
 
 const items = ref([{ name: "David" }, { name: "Lucy" }]);
-const obj={
-  a1:'aaa',
-  a2:123,
-  a3:{
-    b1:'bbb',
-    b2:456
-  }
-}
+const obj = {
+  a1: "aaa",
+  a2: 123,
+  a3: {
+    b1: "bbb",
+    b2: 456,
+  },
+};
 </script>
 
 <!-- template是一个模板占位符，可以用来包裹元素而不产生多余的div -->
@@ -60,22 +60,22 @@ const obj={
       {{ item.name }}
     </li>
     <!-- 第一个参数表示值，第二个参数表示索引 -->
-    <li v-for="(item,index) in items">
-      {{index}} - {{ item.name }}
-    </li>
+    <li v-for="(item, index) in items">{{ index }} - {{ item.name }}</li>
     <!-- 解构 -->
-    <li v-for="{name} in items">
+    <li v-for="{ name } in items">
       {{ name }}
     </li>
     <!-- 遍历属性 -->
-    <li v-for="(value,key,index) in obj">
+    <li v-for="(value, key, index) in obj">
       {{ index }} - {{ key }} - {{ value }}
       <!-- {{ key }} - {{ value }} -->
     </li>
     <span v-for="n in 10">{{ n }}-</span>
-
   </div>
 </template>
+
+<!-- 可以以这种方式引入外部css -->
+<!-- <style src="@/style/reset.css"  scoped></style> -->
 
 <style>
 #vid {

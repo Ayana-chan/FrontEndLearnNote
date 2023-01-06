@@ -19,7 +19,7 @@ const loginForm = reactive({
 });
 
 const loginRules = reactive<FormRules>({
-  email: [{ required: true, message: 'Please Input E-Mail', trigger: 'blur' }],
+  email: [{ required: true, message: 'Please Input E-Mail', trigger: 'change' }],
   code: [
     {
       required: true,
@@ -28,7 +28,7 @@ const loginRules = reactive<FormRules>({
     },
     { min: 6, max: 6, message: 'Format Error', trigger: 'blur' },
   ],
-  name:[{ required: true, message: 'Please Input Name', trigger: 'blur' }]
+  name:[{ required: true, message: 'Please Input Name', trigger: 'change' }]
 });
 
 // 能否发送验证码。防止多次连续发送
