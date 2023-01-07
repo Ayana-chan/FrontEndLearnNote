@@ -16,10 +16,10 @@
 
         display: grid;
         gap:0.2rem 0.8rem;
-        /* repeat表示n个参数都一样 */
-        /* auto-fill表示自动计算列数并用空白填充剩余不够的空位 */
-        /* minmax(100px,1fr)表示最窄100px，最宽占100%剩余空间 */
-        /* 似乎会尽量取到最小值来塞尽量多的box */
+        /* repeat表示n个参数都一样。其他时候可以写成多个参数表示每一列（行）的尺寸 */
+        /* auto-fill表示自动重复最大次数 */
+        /* minmax(100px,1fr)表示最窄100px，最宽占100%剩余空间（改掉1fr可以防止在列数过少的时候变形严重 */
+        /* 似乎会尽量取到最小值，因此会每行塞尽量多的box */
         grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
         grid-auto-rows:120px;
     }
