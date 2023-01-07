@@ -3,18 +3,19 @@
 </script>
 
 <template>
-    <div class="list clearfix">
+    <div class="list">
         <div class="item" v-for="item in books">
             <div class="panel">
                 {{item}}
             </div>
         </div>
     </div>
-    
+
 </template>
 
 <style scoped>
 .list{
+    container-type: inline-size;
     width: 100%;
     /* height: 300px; */
     background-color: #bfa;
@@ -34,19 +35,41 @@
     margin: 2px auto;
 }
 
-@media (width <=300px) {
+@container(width <= 300px) {
     .list .item{
         width: 100%;
     }
 }
-@media (300px< width <=500px) {
+@container(300px < width <= 500px){
     .list .item{
         width: 50%;
     }
 }
-@media (width > 500px) {
+@container(width > 500px){
     .list .item{
         width: 33.3%;
     }
 }
+
 </style>
+
+
+
+
+<!-- .card-container {
+  container-type: inline-size;
+}
+
+.card {
+  color: red;
+}
+
+@container (width >= 400px) {
+  .card {
+    color: blue;
+  }
+}
+
+<div class="card-container">
+        <div class="card">aaa</div>
+    </div> -->

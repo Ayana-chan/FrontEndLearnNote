@@ -171,7 +171,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
     </Transition>
 
     <el-form-item>
-      <el-button type="primary" plain @click="submitForm(loginFormRef)">{{
+      <el-button class="login-botton" type="primary" plain @click="submitForm(loginFormRef)">{{
         requestType === 'login' ? 'Login' : 'Register'
       }}</el-button>
     </el-form-item>
