@@ -9,7 +9,20 @@ export default [
         code: 200,
         message: 'ok',
         data: {
-            name: '@cname'
+          list: ['@cname', '@cname'],
+        },
+      };
+    },
+  },
+  {
+    url: '/people/getOne',
+    method: 'post',
+    response: () => {
+      return {
+        code: 200,
+        message: 'ok',
+        data: {
+          name: '@cname',
         },
       };
     },

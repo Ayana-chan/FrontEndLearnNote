@@ -7,9 +7,16 @@ import {  getCurrentInstance } from "vue";
 const { proxy } = getCurrentInstance();
 
 function getOnePeople(){
+  proxy.$api.people.getOne().then((res)=>{
+        console.log('get message')
+        console.log(res.data.data)
+  })
+}
+
+function getAllPeople(){
   proxy.$api.people.getAll().then((res)=>{
         console.log('get message')
-        console.log(res)
+        console.log(res.data.data)
   })
 }
 
@@ -22,6 +29,7 @@ onMounted(() => {
 
 <template>
   <el-button type="primary" size="default" @click="getOnePeople">people.getOne</el-button>
+  <el-button type="primary" size="default" @click="getAllPeople">people.getAll</el-button>
   
 </template>
 
