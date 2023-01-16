@@ -5,7 +5,7 @@ export default function request(config){
     
     //创建axios实例
     const axiosInstance=axios.create({
-        baseURL: 'http://localhost:5173',
+        baseURL: 'http://127.0.0.1:5173',
         headers:{'Content-Type':'application/json'},
         timeout: 4000,
     })

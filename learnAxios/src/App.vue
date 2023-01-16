@@ -1,19 +1,22 @@
 <script setup>
-// import api from './api';
-// import {  getCurrentInstance } from "vue";
-// const { proxy } = getCurrentInstance();
-
-// function getOnePeople(){
-//   proxy.$api.people.getOne('Bob').then(()=>{
-//         console.log('get message')
-//   })
-// }
-
-import axios from 'axios';
+import axios from 'axios';//测试用
 import { onMounted } from 'vue'
 
+// import api from './api';
+import {  getCurrentInstance } from "vue";
+const { proxy } = getCurrentInstance();
+
+function getOnePeople(){
+  proxy.$api.people.getAll().then((res)=>{
+        console.log('get message')
+        console.log(res)
+  })
+}
+
+
+
 onMounted(() => {
-    axios.get("/api/getUserInfo").then(res => { console.log(res); });
+    axios.get("/mockBasicTest").then(res => { console.log(res); });
 })
 </script>
 

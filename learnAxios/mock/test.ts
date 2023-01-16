@@ -1,11 +1,24 @@
-import { MockMethod } from 'vite-plugin-mock'
+import { MockMethod } from 'vite-plugin-mock';
+// import Mock from 'mockjs';
 
 export default [
   {
-    url: '/api/getUserInfo', // 注意，这里只能是string格式
+    url: '/mockBasicTest',
     method: 'get',
     response: () => {
-      return 'hello world and get mockData'
+      return {
+        code: 200,
+        message: 'ok',
+        data: { success: true },
+      };
     }
   }
 ] as MockMethod[]
+
+// Mock.mock('/mockBasicTest', 'get', (req) => {
+//   console.log(req);
+//   return {
+//     username: '名字',
+//     type: '类型',
+//   };
+// });

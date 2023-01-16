@@ -2,15 +2,15 @@ import request from "@/utils/request";
 
 export function getAll(){
     return request({
-        url:'/people',
-        method:'get',
+        url:'/people/getAll',
+        method:'post',
     })
 }
 
 export function getOne(id) {
     return request({
-        url: `/people?${id}`,
-        method: 'get',
+        url: `/people/getOne?${id}`,
+        method: 'post',
     });
 }
 
